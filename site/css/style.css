@@ -9,7 +9,7 @@ input[type=text]:focus {
     width: 100%;
 }
 body {
-background-color: transparent;
+background-color: #001a1a;
 }
 html { 
 background: url(../img/bg.jpg) no-repeat center center fixed; 
