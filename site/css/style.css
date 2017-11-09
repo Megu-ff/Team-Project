@@ -9,12 +9,24 @@ input[type=text]:focus {
     width: 100%;
 }
 body {
-background-color: #001a1a;
+background-color: #211616; 
 }
-html { 
+.container {
+/*
 background: url(../img/bg.jpg) no-repeat center center fixed; 
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
 background-size: cover;
+*/
+color:white;
+}
+.jumbotron {
+color:#525252;
+}
+.title {
+color: #939393;
+}
+.rating {
+color:white;
 }
