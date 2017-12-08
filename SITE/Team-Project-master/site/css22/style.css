@@ -1,0 +1,62 @@
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+body {
+background-color: #211616; 
+background-image: url("img/bg.jpg");
+
+}
+.container {
+/*
+background: url(../img/bg.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+*/
+color:white;
+}
+.jumbotron {
+color:#525252;
+}
+.title {
+color: #939393;
+}
+.rating {
+color:white;
+}
+.price {
+color: #939393;
+}
+.description {
+color:white;
+}
+.genre{
+color:blue;
+text-align: right;
+}
+
+
+#RunScript{
+  font-family:calibri;
+  display: block;
+  width: 140px;
+  text-transform: uppercase;
+  padding: 10px;
+  text-align: center;
+  margin: 20px auto;
+  cursor: pointer;
+  
+}
+.col-sm-3{
+  padding-right: 4%;
+  padding-top: 3%;
+}
+

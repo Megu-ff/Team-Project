@@ -1,0 +1,32 @@
+.row1{
+    background-color: lightblue;
+    position: relative;
+    left: 50%;
+    border: 3px solid #73AD21;
+}
+
+.row2{ 
+    background-color: lightgreen;
+    position: relative;
+    left: 50%;
+    border: 3px solid #73AD21;
+   
+}
+
+.row3{
+    background-color: lightpink;
+    position: relative;
+    left: 50%;
+    border: 3px solid #73AD21;
+}
+
+"{
+  width: 100%;
+  height: 800px;
+
+}
+.video_size{
+  
+  width: 30%;
+  height: 40%;
+}

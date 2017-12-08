@@ -1,0 +1,76 @@
+input[type=text] {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+/* When the input field gets focus, change its width to 100% */
+input[type=text]:focus {
+    width: 100%;
+}
+body {
+background-color: #211616; 
+
+
+}
+.container {
+/*
+background: url(../img/bg.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+*/
+color:white;
+}
+
+.title{
+  color: green;
+	font-size:1vw;
+	float: left;
+}
+
+.price{
+	float: right;
+	font-size:1vw;
+}
+
+.masterdiv{
+	
+	overflow: auto;
+	background-color: orange;
+	height: 50px;
+
+}
+
+.description{
+  height: 50px;
+	width: auto;
+	overflow: hidden, auto;
+	
+	
+}
+
+.genre{
+	font-size:1vw;
+  color: pink;
+}
+
+
+.steam_stream{
+
+ 	padding-top: 2%;
+	width: 25%;
+	heigth: 25%;
+	padding-right: 2.5%;
+	padding-left: 2.5%;
+}
+
+.content_container
+{
+	
+	background-color: #737373;
+	padding: 2%;
+}
+
+ 
