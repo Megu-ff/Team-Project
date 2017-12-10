@@ -7,13 +7,17 @@
 
 
 #pip install bs4
+#pip install requests
 #python
 import bs4
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
 
+import requests
+cookies = { 'birthtime': '-2208989360', 'mature_content': '1' }
+r = requests.get('http://store.steampowered.com/', cookies=cookies)
 
-my_url = 'http://store.steampowered.com/search/?filter=topsellers&category1=998,996'
+my_url = 'http://store.steampowered.com/search/?category1=998&os=win&filter=topsellers'
 
 # opening connection, taking the page
 uClient = uReq(my_url)
@@ -71,29 +75,50 @@ for container in containers:
 		game_link = container.findAll('a')[i].get('href')
 
 
+
+
 #Image
 		game_image = container.findAll('img')[i].get('src')
-
 		product_name = ' '.join(product_name.split())
 	#	price = ' '.join(price.split())
 
 		print("Game Name: " + product_name)
-	#	print("Price:" + price)
+		#print("Price:" + price)
 		print("Release Date: " + rldate)
 		print("Game Link: " + game_link)
-		print("Game Image " + game_image)
+		print("Game Image: " + game_image)
+
+		uClient = uReq(game_link)
+		price_html = uClient.read()
+		uClient.close()
+
+		page_price = soup(price_html,"html.parser")
+ 	
+		pricing = page_price.findAll("div",{"class":"responsive_page_frame with_header"})
+
+	#	for price in pricing:
+
+	#		if price.find(div="discount_final_price"):
+#				game_price = price.findAll("div",{"class":'discount_final_price'})
+	#			gamprice = game_price[i].text
+#				print("Price:" + game_price)	
+	#		elif price.find(div="game_purchase_price price"):
+#				game_price = price.findAll("div",{"class":'game_purchase_price price'})
+#				gamprice = game_price[i].text
+#				print("Price:" + game_price)
+
+	#		else:
+#				break
+
+				
 
 
 
 
-
-		f.write(product_name + "," +
-		# price.replace(",",".")  + 
-		(",") +
-		 rldate +(",")+ 
-		 game_link +(",")+
-		 game_image + 
-		 "\n"  )
+		f.write(product_name + "," + 
+		#	price.replace(",",".") + 
+		(",") + rldate +(",")+  game_link +(",")+ game_image + 
+				 "\n"  )
 
 
 
