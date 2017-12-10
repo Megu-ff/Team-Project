@@ -8,14 +8,13 @@
 
 #pip install bs4
 #python
-import urllib
 import bs4
 from urllib.request import urlopen as uReq
 from bs4 import BeautifulSoup as soup
-from bs4 import BeautifulSoup as BSHTML
 
-my_url = 'http://store.steampowered.com/'
-page = 'http://store.steampowered.com/'
+
+my_url = 'http://store.steampowered.com/search/?filter=topsellers&category1=998,996'
+
 # opening connection, taking the page
 uClient = uReq(my_url)
 page_html = uClient.read()
@@ -25,12 +24,10 @@ uClient.close()
 page_soup = soup(page_html,"html.parser")
  
 # Grabs Each Product
-containers = page_soup.findAll("div",{"id":"tab_topsellers_content"})
+containers = page_soup.findAll("div",{"id":"search_result_container"})
 
-#Image Links
-imgs = page_soup.findAll("div",{"id":"tab_content"})
-
-
+#All of the page
+#Containers[0]
 
 # 1 Product
 
@@ -38,80 +35,66 @@ imgs = page_soup.findAll("div",{"id":"tab_content"})
 #container.a
 
  
-# ALl game titles
-
-#title_container = container.findAll("div",{"class":"tab_item_name"})
-
-
-# First Game
-
-#product_name = title_container[0].text
-#product_name[0].text
-
-
-# First Price
-
-#game_price =container.findAll("div,{"class":"discount_final_price"})
-#game_price[0].text
-
-
 
 #Loop 
 
 filename = "games.xml"
 f = open(filename, "w")
 
-headers = "game, price, tag, tag2, tag3, tag4, image_link \n"
+headers = "game, price, release date, game link, game image \n"
 
 f.write(headers)
 
 
-
 for container in containers:
-
+	for i in range(19):
 
 #First Product
 
 #Game Name
-	title_container = container.findAll("div",{"class":"tab_item_name"})
-	product_name = title_container[0].text
+		title_container = container.findAll("div",{"class":"col search_name ellipsis"})
+		product_name = title_container[i].text
 #Game Price
-	game_price = container.findAll("div",{"class":"discount_final_price"})
-	price =	game_price[0].text
+		#col search_price discounted responsive_secondrow
+		#col search_price responsive_secondrow
+		#game_price = container.findAll("div",{"class":"col search_discount responsive_secondrow"})	
+		#price =	game_price[i].text 
+		#if (price == " "):
+		#	game_price = container.findAll("div",{"class":"search_price responsive_secondrow"})	
+	#	price =	game_price[i].text 
+	#	else:
+	#		price =	game_price[i].text 
 #Tags
-	game_tag = container.findAll("div",{"class":"tab_item_top_tags"})
-	tag = game_tag[0].text
-#Game ID
-	#game_id = container.string for link in item.find_all(id='data-ds-appid')
+		release_date = container.findAll("div",{"class":"col search_released responsive_secondrow"})
+		rldate = release_date[i].text
+#Game Link
+		game_link = container.findAll('a')[i].get('href')
+
 
 #Image
-game_image = container.findAll('img')[0].get('src')
+		game_image = container.findAll('img')[i].get('src')
+
+		product_name = ' '.join(product_name.split())
+	#	price = ' '.join(price.split())
+
+		print("Game Name: " + product_name)
+	#	print("Price:" + price)
+		print("Release Date: " + rldate)
+		print("Game Link: " + game_link)
+		print("Game Image " + game_image)
 
 
 
-print("game_name: " + product_name)
-print("price: " + price)
-print("tags: " + tag)
-print("Game Link " + game_image)
 
 
+		f.write(product_name + "," +
+		# price.replace(",",".")  + 
+		(",") +
+		 rldate +(",")+ 
+		 game_link +(",")+
+		 game_image + 
+		 "\n"  )
 
-f.write(product_name + "," + price.replace(",",".") + (",") + tag.replace(","," ") +(",")+ game_image + "\n"  )
-
-#Second Product
-
-	#title_container = container.findAll("div",{"class":"tab_item_name"})
-	#product_name = title_container[1].text
-
-	#game_price = container.findAll("div",{"class":"discount_final_price"})
-	#price =	game_price[1].text
-
-	#print("game_name: " + product_name)
-
-
-	#f.write(product_name + "," + price.replace(",",".") + "\n"  )
-
-	#print("price: " + price)
 
 
 f.close()
