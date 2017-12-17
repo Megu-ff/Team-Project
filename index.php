@@ -112,8 +112,6 @@
 				</div>
 			</div>
 		</div>
-				
-	<?php }} ?>
 <!-- 			end stream list -->
 			
 			</div>
