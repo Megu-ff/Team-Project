@@ -1,1 +1,1 @@
-web: python PythonSteam/Steam_Scraper.py
+web: python Steam_Scraper.py
