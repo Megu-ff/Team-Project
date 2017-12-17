@@ -21,14 +21,6 @@
 			<div id="logo">
 		 		<img id="Logo" src="img/steamScrapper.png" alt="missing logo"> 
 			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="page-header">
-						<button name="PriceAsc_btn" type="submit" value="HTML">Cheapest</button>
-						<button name="PriceDesc_btn" type="submit" value="HTML">Most Expensive</button>	
-					</div>
-				</div>
-			</div>
 
 	<?php 
 
