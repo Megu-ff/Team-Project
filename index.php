@@ -94,13 +94,7 @@
 	<?php }} ?>
 				
 	<!-- needs to be changed -->
-	<?php 
-	if(isset($_POST['PriceDesc_btn']))
-	{
 
-	$sqlGet = "SELECT * FROM GameInfo ORDER BY GamePrice DESC";
-	$sqldata = mysqli_query($db, $sqlGet) or die('you done fucked');
-	while($row = mysqli_fetch_array($sqldata, MYSQLI_ASSOC)){  ?>
 			
 			<div class="col-sm-4 steam_stream">
 			<div class="row">
