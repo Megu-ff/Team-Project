@@ -1,0 +1,1 @@
+web: python PythonSteam\Steam_Scraper.py
